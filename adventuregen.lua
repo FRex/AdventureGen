@@ -1,6 +1,8 @@
 htmltemplate = [===[
+<!DOCTYPE html>
 <html>
 <head>
+    <title>Story</title>
     <meta charset="utf-8">
     <style>
         div.storypage {
@@ -30,14 +32,14 @@ function page(pagename)
         local choices
 
         if pagedata.choices then
-            choices = {'    <ol>'}
+            choices = {'        <ol>'}
             for i,v in pairs(pagedata.choices) do
-                table.insert(choices, ("        <li><a href='#%s'>%s</a></li>"):format(i, v))
+                table.insert(choices, ("            <li><a href='#%s'>%s</a></li>"):format(i, v))
             end
-            table.insert(choices, '    </ol>')
+            table.insert(choices, '        </ol>')
             choices = table.concat(choices, '\n')
         else
-            choices = '    The end.'
+            choices = '        The end.'
         end
 
         local ending = "    </div>"
